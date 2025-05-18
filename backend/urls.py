@@ -16,8 +16,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+# Simple homepage view
+def home(request):
+    return HttpResponse("HairGlamour Backend is running.")
 
 urlpatterns = [
+    path('', home),  #Root path fix
     path('admin/', admin.site.urls),
     path('api/', include('booking.urls')),
 ]
+
+
+
+#from django.contrib import admin
+#from django.urls import path, include
+
+#urlpatterns = [
+#   path('admin/', admin.site.urls),
+#    path('api/', include('booking.urls')),
+#]
